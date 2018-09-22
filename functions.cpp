@@ -1,4 +1,4 @@
-#include "battle.h"
+#include "main.h"
 
 std::string getText(const char* message) {
 	std::string input;
@@ -64,14 +64,12 @@ int Battle(Player& player) {
 		turn++;
 	}
 
-	int moneyEarned[3];
 	if ( player.health > 0 ) {
 		std::cout << "\nCongratulations! You have defeated your opponent!" << std::endl;
 		// setMoneyEarned( opponent, moneyEarned );
 	}
 	else {
 		std::cout << "\nOh no! Looks like you were defeated." << std::endl;
-		moneyEarned[2] = 5;
 	}
 
 	return 1;

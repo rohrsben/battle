@@ -1,4 +1,4 @@
-#include "battle.h"
+#include "main.h"
 
 // initializer
 Player::Player( std::string title ){
@@ -22,7 +22,7 @@ void Player::pass(){
 }
 
 void Player::doDamage( Enemy& opponent ){
-	int baseDamage = Random::get(10, 15);
+	int baseDamage = Random::get(7, 12);
 	if ( Random::get<bool>( hitChance ) ){
 		int damage = baseDamage * level;
 		opponent.getHit( damage );

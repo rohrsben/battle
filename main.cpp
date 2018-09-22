@@ -1,4 +1,4 @@
-#include "battle.h"
+#include "main.h"
 
 int main(){
 	std::string name = getText("What is your name, fighter? ");
