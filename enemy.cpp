@@ -1,7 +1,6 @@
-#include "main.h"
+#include "stdIncludes.h"
 
 // specific initializers
-
 void Enemy::initOgre(){
 	health = 100;
 	damageRange[0] = 10;
@@ -49,7 +48,6 @@ void Enemy::initRandom(){
 
 
 // main initializer
-
 Enemy::Enemy( std::string enemyType, int newLevel ){
 	level = newLevel;
 	if 		( enemyType == "Ogre" ) 	initOgre();
@@ -62,9 +60,7 @@ Enemy::Enemy( std::string enemyType, int newLevel ){
 
 
 // general funtions
-
 void Enemy::getHit( int damageDone ){
-	std::cout << "The " << name << " is hit for " << damageDone << " damage." << std::endl;
 	health -= damageDone;
 }
 

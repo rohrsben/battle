@@ -1,14 +1,21 @@
-#include "main.h"
+#include "stdIncludes.h"
 
 // initializer
 Player::Player( std::string title ){
-	name = title;
-	// TODO: add save/load function here
+	if ( /* put save finding logic here */  0 ) {
+		;// load the save
+	}
+	else {
+		name = title;
+		level = 1;
+		health = 100;
+		damageRange[0]= 7;
+		damageRange[1] = 12;
+		hitChance = 0.95;
+	}
 }
 
-
 // general functions
-
 void Player::getHit( int damageDone){
 	std::cout << "You are hit for " << damageDone << " damage." << std::endl;
 	health -= damageDone;
@@ -21,11 +28,24 @@ void Player::pass(){
 	std::cout << "You have healed for " << healthRegained << " health." << std::endl;
 }
 
-void Player::doDamage( Enemy& opponent ){
-	int baseDamage = Random::get(7, 12);
+void Player::kill() {
+	dead = true;
+}
+
+void Player::save() {
+	// TODO
+}
+
+void Player::deleteSave() {
+	// TODO
+}
+
+int Player::getDamageDone(){
+	int damageDone = 0;
+	int baseDamage = Random::get( damageRange[0], damageRange[1] );
 	if ( Random::get<bool>( hitChance ) ){
-		int damage = baseDamage * level;
-		opponent.getHit( damage );
+		damageDone = baseDamage * level;
 	}
-	else std::cout << "You missed!" << std::endl;
+
+	return damageDone;
 }
